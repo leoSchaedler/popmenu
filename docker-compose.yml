@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: popmenu
+      POSTGRES_PASSWORD: popmenu
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    command: bash -c "bin/rails db:prepare && bin/rails s -b 0.0.0.0 -p 3000"
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development
+      DB_USER: popmenu
+      DB_PASSWORD: popmenu
+      DB_HOST: db
+volumes:
+  db_data:
+  bundle_cache:
