@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :update, :destroy]
-  skip_before_action :authenticate_user!, raise: false if Rails.env.test?
 
   def index
     @menus = Menu.all

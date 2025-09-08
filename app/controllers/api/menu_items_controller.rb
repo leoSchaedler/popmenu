@@ -1,7 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu
   before_action :set_menu_item, only: [:show, :update, :destroy]
-  skip_before_action :authenticate_user!, raise: false if Rails.env.test?
 
   def index
     render json: @menu.menu_items
