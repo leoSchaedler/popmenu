@@ -13,6 +13,7 @@ services:
   app:
     build: .
     command: bash -c "bin/rails db:prepare && bin/rails s -b 0.0.0.0 -p 3000"
+    user: "${UID}:${GID}"
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
