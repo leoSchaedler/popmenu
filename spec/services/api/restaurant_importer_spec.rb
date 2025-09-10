@@ -116,7 +116,7 @@ RSpec.describe Api::RestaurantImporter do
             {
               name: "NoDesc Cafe",
               menus: [
-                { name: "Menu Without Desc", menu_items: [{ name: "Item Without Price" }] }
+                { name: "Menu Without Desc", menu_items: [ { name: "Item Without Price" } ] }
               ]
             }
           ]

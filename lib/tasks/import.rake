@@ -3,7 +3,7 @@
 namespace :import do
   # Task description for rake -- provides context for the user
   desc "Import restaurant data from JSON files"
-  
+
   # Main rake task for importing restaurants, loads Rails environment
   task restaurant: :environment do
     # Determine which JSON files to import based on environment variables,
@@ -14,7 +14,7 @@ namespace :import do
       elsif ENV["FILES"]
         ENV["FILES"].split(",")
       else
-        [ENV["FILE"] || "spec/fixtures/og_restaurant_data.json"]
+        [ ENV["FILE"] || "spec/fixtures/og_restaurant_data.json" ]
       end
 
     # Tracks whether all imports succeed

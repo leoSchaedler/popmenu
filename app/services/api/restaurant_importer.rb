@@ -26,7 +26,7 @@ module Api
       Result.new(success: true, logs: @logs)
     rescue JSON::ParserError => e
       # Handles invalid JSON input gracefully
-      Result.new(success: false, logs: [{ status: "error", message: "Invalid JSON: #{e.message}" }])
+      Result.new(success: false, logs: [ { status: "error", message: "Invalid JSON: #{e.message}" } ])
     rescue => e
       # Captures any other unexpected errors during import
       Result.new(success: false, logs: @logs << { status: "error", message: e.message })
@@ -94,7 +94,7 @@ module Api
       end
 
       item ||= restaurant.menu_items.create!(
-        name: i_data["name"], 
+        name: i_data["name"],
         description: i_data["description"] || "No description provided",
         price: i_data["price"] || "No price provided"
       )

@@ -1,6 +1,5 @@
 module Api
   class ImportsController < ApplicationController
-    
     def new
       # Just renders the view with the file upload form for JSON Files
     end
@@ -11,14 +10,14 @@ module Api
 
       # Return error if no file was uploaded
       unless file
-        return render json: { success: false, logs: ["No file provided"] }, status: :unprocessable_entity
+        return render json: { success: false, logs: [ "No file provided" ] }, status: :unprocessable_entity
       end
 
       # Only allow JSON files
       unless file.content_type == "application/json" || File.extname(file.original_filename) == ".json"
-        return render json: { success: false, logs: ["Invalid file type, only JSON allowed"] }, status: :unprocessable_entity
+        return render json: { success: false, logs: [ "Invalid file type, only JSON allowed" ] }, status: :unprocessable_entity
       end
-      
+
       # Read the uploaded file's contents
       if file.respond_to?(:path)
         json = File.read(file.path)

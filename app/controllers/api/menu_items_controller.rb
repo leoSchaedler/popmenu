@@ -2,7 +2,7 @@ module Api
   class MenuItemsController < ApplicationController
     before_action :set_restaurant, if: -> { params[:restaurant_id].present? }
     before_action :set_menu, if: -> { params[:menu_id].present? }
-    before_action :set_menu_item, only: [:show, :update, :destroy]
+    before_action :set_menu_item, only: [ :show, :update, :destroy ]
 
     def index
       if @menu

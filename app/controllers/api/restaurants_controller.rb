@@ -1,6 +1,6 @@
 module Api
   class RestaurantsController < ApplicationController
-    before_action :set_restaurant, only: [:show, :update, :destroy]
+    before_action :set_restaurant, only: [ :show, :update, :destroy ]
 
     def index
       @restaurants = Restaurant.all
