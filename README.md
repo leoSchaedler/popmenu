@@ -395,9 +395,11 @@ This was by far the most rewarding part of the challenge because I could see tha
 
 After finishing Level 3, I saw a clear path of where this project could go: Create a robust front end with CRUD structures for all objects, create views to visualize menus in an interactive way, all that would require tweaks and additions in the back end, such as more attributes for each object, like images for instance.
 
+I would like to disclose that GPT5, and GPT5-mini when tokens ran out haha, was used to help with development of this project, especially in the initial project setup, system conflicts debugging, Readme text generation and code comments generation.
+
 In the end, it was a fun challenge to take part in and I hope it has been fun to evaluate me ! :)
 
-# Useful quick commands:
+# Useful Quick Commands:
 
 docker-compose build --no-cache
 
