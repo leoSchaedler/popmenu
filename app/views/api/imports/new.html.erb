@@ -1,0 +1,76 @@
+<style>
+  body {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    font-family: sans-serif;
+    padding: 2rem;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;       /* centers container horizontally */
+    text-align: center;   /* centers text and form elements */
+  }
+
+  h1, h2 {
+    color: #f0f0f0;
+  }
+
+  form div {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  input, button, select, textarea {
+    background-color: #2c2c2c;
+    color: #dcdcdc;
+    border: 1px solid #555;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  input[type="file"] {
+    padding: 0.3rem;
+  }
+
+  button {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+  }
+
+  button:hover {
+    background-color: #444;
+  }
+
+  pre {
+    background-color: #2a2a2a;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    text-align: left;  /* keep JSON left-aligned */
+  }
+</style>
+
+<div class="container">
+  <h1>JSON Restaurant Importer Tool</h1>
+  <%= form_with url: api_imports_path, local: true, multipart: true do |form| %>
+    <div>
+      <%= form.label :file, "Upload JSON file" %>
+      <%= form.file_field :file %>
+    </div>
+
+    <%= form.submit "Import" %>
+  <% end %>
+</div>
+
+<div>
+  <% if @result %>
+    <h2>Result:</h2>
+    <pre><%= JSON.pretty_generate(success: @result.success, logs: @result.logs) %></pre>
+  <% end %>
+</div>

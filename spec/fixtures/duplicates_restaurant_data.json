@@ -1,0 +1,16 @@
+{
+  "restaurants": [
+    {
+      "name": "Duplication Diner",
+      "menus": [
+        {
+          "name": "Lunch",
+          "menu_items": [
+            { "name": "Burger", "price": 9 },
+            { "name": "Burger", "price": 9 }
+          ]
+        }
+      ]
+    }
+  ]
+}

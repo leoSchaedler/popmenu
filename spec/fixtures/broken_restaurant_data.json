@@ -1,0 +1,15 @@
+{
+  "restaurants": [
+    {
+      "name": "Broken Place",
+      "menus": [
+        {
+          "name": "Lunch",
+          "menu_items": [
+            { "name": "Burger", "price": 10 },
+            { "name": "Salad" "price": 5 }
+          ]
+        }
+      ]
+    }
+  ]

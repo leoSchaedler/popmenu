@@ -1,0 +1,23 @@
+{
+  "restaurants": [
+    {
+      "name": "Poppo's Cafe",
+      "menus": [
+        {
+          "name": "Lunch",
+          "menu_items": [
+            { "name": "Burger", "price": 9, "description": "Beef patty with lettuce" },
+            { "name": "Small Salad", "price": 5, "description": "Fresh greens" }
+          ]
+        },
+        {
+          "name": "Dinner",
+          "menu_items": [
+            { "name": "Steak", "price": 19, "description": "Grilled sirloin" },
+            { "name": "Pasta", "price": 12, "description": "Spaghetti marinara" }
+          ]
+        }
+      ]
+    }
+  ]
+}
