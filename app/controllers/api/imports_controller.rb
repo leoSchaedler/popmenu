@@ -18,12 +18,7 @@ module Api
         return render json: { success: false, logs: [ "Invalid file type, only JSON allowed" ] }, status: :unprocessable_entity
       end
 
-      # Read the uploaded file's contents
-      if file.respond_to?(:path)
-        json = File.read(file.path)
-      else
-        json = File.read(file.to_s)
-      end
+      json = file.read
 
       # Call the service object to process the JSON import
       result = Api::RestaurantImporter.call(json: json)
