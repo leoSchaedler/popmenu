@@ -1,7 +1,7 @@
 module Api
   class MenusController < ApplicationController
     before_action :set_restaurant
-    before_action :set_menu, only: [:show, :update, :destroy]
+    before_action :set_menu, only: [ :show, :update, :destroy ]
 
     def index
       @menus = @restaurant.menus

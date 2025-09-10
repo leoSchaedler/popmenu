@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Unit specs for Menu
 RSpec.describe Menu, type: :model do
   let(:restaurant) { create(:restaurant) }
 

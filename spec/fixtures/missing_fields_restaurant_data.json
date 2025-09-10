@@ -1,0 +1,26 @@
+{
+  "restaurants": [
+    {
+      "name": "Casa del Poppo",
+      "menus": [
+        {
+          "name": "Lunch",
+          "menu_items": [
+            { "name": "Burger" },
+            { "price": 8 }
+          ]
+        },
+        {
+          "menu_items": [
+            { "name": "Lobster Roll", "price": 15 }
+          ]
+        }
+      ]
+    },
+    {
+      "menus": [
+        { "name": "Dinner" }
+      ]
+    }
+  ]
+}

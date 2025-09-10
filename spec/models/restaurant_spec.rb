@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Unit specs for Restaurant
 RSpec.describe Restaurant, type: :model do
   subject { build(:restaurant) }
 

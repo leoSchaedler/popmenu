@@ -1,0 +1,16 @@
+{
+  "restaurants": [
+    {
+      "name": "Weird Cafe",
+      "address": "123 Main St",
+      "menus": [
+        {
+          "title": "Breakfast",
+          "menu_items": [
+            { "item": "Pancakes", "cost": 7 }
+          ]
+        }
+      ]
+    }
+  ]
+}

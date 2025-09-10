@@ -29,8 +29,9 @@ white_pizza     = MenuItem.create!(name: "White Pizza", description: "Garlic, ri
 buffalo_pizza   = MenuItem.create!(name: "Buffalo Pizza", description: "Buffalo chicken, mozzarella, ranch drizzle", price: 16.25, restaurant: pizzaPlace)
 calzone_special = MenuItem.create!(name: "Calzone Special", description: "Folded pizza stuffed with meats and cheeses", price: 15.75, restaurant: pizzaPlace)
 
-[margherita, pepperoni, four_cheese, bbq_chicken, veggie_supreme,
- hawaiian, meat_lovers, white_pizza, buffalo_pizza, calzone_special].each do |item|
+# Creates entries in association table "MenuItemization" in order to link MenuItems and Menus
+[ margherita, pepperoni, four_cheese, bbq_chicken, veggie_supreme,
+ hawaiian, meat_lovers, white_pizza, buffalo_pizza, calzone_special ].each do |item|
   MenuItemization.create!(menu: pizzas, menu_item: item)
 end
 
@@ -47,8 +48,9 @@ veggie_burger   = MenuItem.create!(name: "Veggie Burger", description: "Grilled 
 pulled_pork     = MenuItem.create!(name: "BBQ Pulled Pork Burger", description: "Pulled pork, coleslaw, BBQ sauce, brioche bun", price: 14.25, restaurant: burguerPlace)
 truffle_burger  = MenuItem.create!(name: "Truffle Burger", description: "Beef patty, truffle aioli, arugula, gruyere", price: 15.99, restaurant: burguerPlace)
 
-[classic_cheese, bacon_burger, mushroom_swiss, double_stack, spicy_jalapeno,
- guacamole, fried_egg, veggie_burger, pulled_pork, truffle_burger].each do |item|
+# Creates entries in association table "MenuItemization" in order to link MenuItems and Menus
+[ classic_cheese, bacon_burger, mushroom_swiss, double_stack, spicy_jalapeno,
+ guacamole, fried_egg, veggie_burger, pulled_pork, truffle_burger ].each do |item|
   MenuItemization.create!(menu: burguers, menu_item: item)
 end
 
@@ -65,8 +67,9 @@ vatapa          = MenuItem.create!(name: "Vatapá", description: "Creamy shrimp 
 farofa          = MenuItem.create!(name: "Farofa", description: "Toasted cassava flour with bacon and onions", price: 9.50, restaurant: brazilianPlace)
 caipirinha_sorb = MenuItem.create!(name: "Caipirinha Sorbet", description: "Frozen lime dessert with cachaça flavor", price: 8.25, restaurant: brazilianPlace)
 
-[feijoada, pao_de_queijo, moqueca, coxinha, picanha,
- brigadeiro, acaraje, vatapa, farofa, caipirinha_sorb].each do |item|
+# Creates entries in association table "MenuItemization" in order to link MenuItems and Menus
+[ feijoada, pao_de_queijo, moqueca, coxinha, picanha,
+ brigadeiro, acaraje, vatapa, farofa, caipirinha_sorb ].each do |item|
   MenuItemization.create!(menu: brazilians, menu_item: item)
 end
 
