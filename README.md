@@ -57,13 +57,7 @@ cd popmenu
 bundle install
 ```
 
-3. Copy the environment file and configure secrets:
-
-```bash
-cp .env.example .env
-```
-
-4. Fill in database credentials in DB viewer of your choice:
+3. Fill in database credentials in DB viewer of your choice:
 
 ```bash
 POSTGRES_USER: popmenu
@@ -81,15 +75,25 @@ This was due to conflict in other applications running in the development machin
 
 ## Database Creation and Initialization
 
-Create and migrate the database:
+Using Docker (recommended):
 
-Using Docker:
+Build application:
+
+docker-compose build
+
+Switch Container ON:
+
+docker-compose build or docker-compose build -d ( -d flag for no logs )
+
+Create and migrate the database:
 
 ```bash
 docker-compose run --rm app rails db:create db:migrate db:seed
 ```
 
 Locally (without Docker):
+
+This assumes you have the DB proccess running locally, have an active role and user for your DB, also changed the host in `database.yml`
 
 ```bash
 rails db:create db:migrate db:seed
@@ -111,13 +115,26 @@ This project uses RSpec for unit and request specs:
 With Docker:
 
 ```bash
-docker-compose run --rm app bundle exec rspec
+docker-compose run --rm app bash
+```
+Then, in bash:
+
+```bash
+bin/rspec
+```
+Then, to exit:
+
+```bash
+exit
 ```
 
 Locally:
 
+This assumes you have the DB proccess running locally, have an active role and user for your DB, also changed the host in `database.yml`
+Also make sure the following directories exist: `tmp/pids`, `tmp/cache` and `tmp/sockets`.
+
 ```bash
-bundle exec rspec
+bin/rspec
 ```
 
 * Tests cover the importer service, API endpoints, and model relationships.
