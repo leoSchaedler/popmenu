@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :menu_itemization do
-    menu { nil }
-    menu_item { nil }
+    association :menu
+    association :menu_item
   end
 end

@@ -8,8 +8,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   namespace :api do
-    resources :menus do
-      resources :menu_items, only: [:index, :show, :create, :update, :destroy]
+    resources :restaurants do
+      resources :menus do
+        # Menu-scoped items
+        resources :menu_items
+      end
+      # Restaurant-scoped items
+      resources :menu_items, only: [:index, :show, :create]
     end
   end
+
+  # global fallback routes (mainly for Level 1 / debugging)
+  resources :menus, only: [:index, :show]
+  resources :menu_items, only: [:index, :show]
 end

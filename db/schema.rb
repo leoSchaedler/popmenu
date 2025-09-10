@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_08_184658) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_09_203031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_08_184658) do
     t.bigint "menu_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["menu_id", "menu_item_id"], name: "index_menu_itemizations_on_menu_id_and_menu_item_id", unique: true
     t.index ["menu_id"], name: "index_menu_itemizations_on_menu_id"
     t.index ["menu_item_id"], name: "index_menu_itemizations_on_menu_item_id"
   end
@@ -30,6 +31,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_08_184658) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "restaurant_id", null: false
+    t.index ["name"], name: "index_menu_items_on_name", unique: true
     t.index ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
   end
 
@@ -44,6 +46,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_08_184658) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
