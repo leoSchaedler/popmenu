@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Unit specs for MenuItemization
 RSpec.describe MenuItemization, type: :model do
   let(:restaurant) { create(:restaurant) }
   let(:menu) { create(:menu, restaurant: restaurant) }

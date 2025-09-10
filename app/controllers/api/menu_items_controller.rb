@@ -32,7 +32,8 @@ module Api
       @menu_item.assign_attributes(menu_item_params)
 
       if @menu_item.save
-        # Optionally also link to a menu if menu_id is provided
+        # Also link to a menu if menu_id is provided, this CREATES a MenuItemization entry.
+        # Linking Menu and MenuItem. This is the expected behaviour.
         if @menu
           @menu.menu_items << @menu_item unless @menu.menu_items.exists?(@menu_item.id)
         end

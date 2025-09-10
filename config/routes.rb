@@ -16,10 +16,11 @@ Rails.application.routes.draw do
       # Restaurant-scoped items
       resources :menu_items, only: [:index, :show, :create]
     end
+    # Route for Restaurant Importer Tool (:new used for web view at 'http://localhost:3001/api/imports/new')
     resources :imports, only: [:create, :new]
   end
 
-  # global fallback routes (mainly for Level 1 / debugging)
+  # Global fallback routes (mainly for Level 1 / debugging)
   resources :menus, only: [:index, :show]
   resources :menu_items, only: [:index, :show]
 end

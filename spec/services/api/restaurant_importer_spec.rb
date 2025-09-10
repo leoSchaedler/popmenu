@@ -1,8 +1,10 @@
 require "rails_helper"
 
+# Unit tests for the RestaurantImporter service
 RSpec.describe Api::RestaurantImporter do
   describe ".call" do
     context "with valid JSON and multiple restaurants" do
+      # Sample JSON containing two restaurants with menus and items, including conflicts/duplicates
       let(:json) do
         {
           restaurants: [
@@ -45,6 +47,7 @@ RSpec.describe Api::RestaurantImporter do
       subject { described_class.call(json: json) }
 
       it "creates restaurants, menus, and menu items correctly" do
+        # Checks that the correct number of restaurants, menus, and menu items are created
         expect { subject }.to change(Restaurant, :count).by(2)
                             .and change(Menu, :count).by(3)
                             .and change(MenuItem, :count).by(4) # Burger reused
@@ -59,20 +62,20 @@ RSpec.describe Api::RestaurantImporter do
       it "logs successes and errors properly" do
         result = subject
 
-        # Check successful restaurant import logs
+        # Ensure restaurants logs include info about successful creation
         restaurant_logs = result.logs.select { |l| l[:item].include?("Cafe") || l[:item].include?("Casa") }
         expect(restaurant_logs.map { |l| l[:status] }).to include(:info)
 
-        # Check that conflicting menu item was logged as error
+        # Conflicting menu item should be logged as an error
         conflict_log = result.logs.find { |l| l[:message].match?(/conflict/) }
         expect(conflict_log[:item]).to eq("Burger")
         expect(conflict_log[:status]).to eq(:error)
 
-        # Check summary logs exist
+        # Each restaurant should have a summary log
         summary_logs = result.logs.select { |l| l[:message].match?(/Summary/) }
         expect(summary_logs.size).to eq(2)
 
-        # Check linked items logs
+        # Check that items linked to menus are logged as success
         success_logs = result.logs.select { |l| l[:status] == :success }.map { |l| l[:item] }
         expect(success_logs).to include("Burger", "Salad", "Steak", "Chicken Wings")
       end
@@ -122,6 +125,7 @@ RSpec.describe Api::RestaurantImporter do
       subject { described_class.call(json: json) }
 
       it "creates records successfully" do
+        # Ensures importer handles missing description/price without failure
         expect { subject }.to change(Restaurant, :count).by(1)
                             .and change(Menu, :count).by(1)
                             .and change(MenuItem, :count).by(1)

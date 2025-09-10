@@ -8,8 +8,8 @@
 
   .container {
     max-width: 600px;
-    margin: 0 auto;       /* centers container horizontally */
-    text-align: center;   /* centers text and form elements */
+    margin: 0 auto;
+    text-align: center;
   }
 
   h1, h2 {
@@ -61,7 +61,7 @@
   <%= form_with url: api_imports_path, local: true, multipart: true do |form| %>
     <div>
       <%= form.label :file, "Upload JSON file" %>
-      <%= form.file_field :file %>
+      <%= form.file_field :file, accept: ".json" %>
     </div>
 
     <%= form.submit "Import" %>

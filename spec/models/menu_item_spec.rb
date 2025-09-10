@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Unit specs for MenuItem
 RSpec.describe MenuItem, type: :model do
   let(:restaurant) { create(:restaurant) }
   let(:menu) { create(:menu, restaurant: restaurant) }
